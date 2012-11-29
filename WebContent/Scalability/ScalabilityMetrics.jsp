@@ -45,6 +45,7 @@
 				<button dojoType="dijit.form.Button" name="selectdefault" onClick="selectDefault(event)">Select Defaults</button>
 				<button dojoType="dijit.form.Button" name="delete" onClick="deleteMetric(event)">Delete Selected</button>
 				<button dojoType="dijit.form.Button" name="create" onClick="createMetric(event)">Create Metric</button>
+				<button dojoType="dijit.form.Button" name="create" onClick="createSysMetric(event)">Add System Metric</button>
 			</span>
 			<button dojoType="dijit.form.Button" value="Model" onClick="goToModel(event)">Model >> </button>
 			
