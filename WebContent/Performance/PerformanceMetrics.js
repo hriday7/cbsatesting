@@ -35,6 +35,12 @@ function createMetric(event)
 	document.getElementById("performancemetrics").submit();
 }
 
+function createSystemMetric(event)
+{
+	document.getElementById("performancemetrics").action = "PerformanceMetrics/CreateSystemMetric.jsp";
+	document.getElementById("performancemetrics").submit();
+}
+
 function goToModel(event)
 {
 	document.getElementById("performancemetrics").action = "PerformanceModels.jsp";
