@@ -33,6 +33,12 @@ function createMetric(event)
 	document.getElementById("scalabilitymetrics").submit();
 }
 
+function createSysMetric(event)
+{
+	document.getElementById("scalabilitymetrics").action = "ScalabilityMetrics/CreateSystemMetric.jsp";
+	document.getElementById("scalabilitymetrics").submit();
+}
+
 function goToModel(event)
 {
 	document.getElementById("scalabilitymetrics").action = "ScalabilityModels.jsp";
