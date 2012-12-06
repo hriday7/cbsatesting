@@ -318,7 +318,7 @@ INSERT INTO `performancemetric` (`MetricID`, `isDefault`, `Name`, `Statistic`, `
 (78, 0, 'VolumeWriteOps', 'Minimum', 'The total number of operations in the period', 'System Defined	System Defined', 'System Defined'),
 (79, 0, 'VolumeWriteOps', 'Sum', 'The total number of operations in the period', 'System Defined	System Defined', 'System Defined'),
 (80, 0, 'VolumeWriteOps', 'SampleCount', 'The total number of operations in the period', 'System Defined	System Defined', 'System Defined'),
-(83, 0, 'CRUM', 'None', 'Utilization', 'Based on a Model', 'Model Defined'),
+(83, 0, 'CRUM', 'Average', 'Utilization', 'System Defined', 'System Defined'),
 (84, 0, 'StorageUtilization', 'Average', 'Percentage of allocated storage in use.', 'System Defined', 'System Defined'),
 (85, 0, 'StorageUtilization', 'Minimum', 'Percentage of allocated storage in use.', 'System Defined', 'System Defined'),
 (86, 0, 'StorageUtilization', 'Maximum', 'Percentage of allocated storage in use.', 'System Defined', 'System Defined'),
@@ -375,9 +375,9 @@ INSERT INTO `performancemetric` (`MetricID`, `isDefault`, `Name`, `Statistic`, `
 (146, 0, 'UserAccessLoad', 'Maximum', 'Total users accessing system.', 'System Defined', 'System Defined'),
 (147, 0, 'UserAccessLoad', 'Sum', 'Total users accessing system.', 'System Defined', 'System Defined'),
 (148, 0, 'UserAccessLoad', 'SampleCount', 'Response time.', 'System Defined', 'System Defined'),
-(149, 0, 'CRAM', 'None', 'Resource allocation.', 'Based on a Model', 'Model Defined'),
-(150, 0, 'SLM', 'None', 'System load.', 'Based on a Model', 'Model Defined'),
-(151, 0, 'SPM', 'None', 'System performance', 'Based on a Model', 'Model Defined'),
+(149, 0, 'CRAM', 'Average', 'Resource allocation.', 'System Defined', 'System Defined'),
+(150, 0, 'SLM', 'Average', 'System load.', 'System Defined', 'System Defined'),
+(151, 0, 'SPM', 'Average', 'System performance', 'System Defined', 'System Defined'),
 (152, 0, 'ResourcesUsed', 'None', 'Total resources used.', '1 * CRUM : None * 1 * CRAM : None', 'System Defined');
 
 -- --------------------------------------------------------
@@ -403,11 +403,11 @@ CREATE TABLE IF NOT EXISTS `performancemodel` (
 --
 
 INSERT INTO `performancemodel` (`ModelID`, `isDefault`, `Name`, `Description`, `NumMetrics`, `Type`, `Status`, `Value`) VALUES
-(1, 1, 'CRAM', 'Computing Resource Allocation Meter. Measures System Resources Allocation.', 5, 'System Defined', '(stopped)', 1001),
-(2, 0, 'CRUM', 'Computing Resource Utilization Meter. Measures System Resources Utilization.', 5, 'System Defined', '(stopped)', 1004),
-(26, 0, 'SPM', 'System Performance Meter.', 5, 'System Defined', '(stopped)', 1003),
-(27, 0, 'SLM', 'System Load Meter.', 3, 'System Defined', '(stopped)', 1002),
-(28, 0, 'SCM', 'System Capacity Meter.', 3, 'System Defined', '(stopped)', 1004);
+(1, 1, 'CRAM', 'Computing Resource Allocation Meter. Measures System Resources Allocation.', 5, 'System Defined', '(running)', 1001),
+(2, 0, 'CRUM', 'Computing Resource Utilization Meter. Measures System Resources Utilization.', 5, 'System Defined', '(running)', 1004),
+(26, 0, 'SPM', 'System Performance Meter.', 5, 'System Defined', '(running)', 1003),
+(27, 0, 'SLM', 'System Load Meter.', 3, 'System Defined', '(running)', 1002),
+(28, 0, 'SCM', 'System Capacity Meter.', 3, 'System Defined', '(running)', 1004);
 
 -- --------------------------------------------------------
 
@@ -443,10 +443,10 @@ INSERT INTO `performancemodeldata` (`ModelID`, `CollectedTime`, `MetricID`, `Dat
 (1, '2012-11-30 14:28:23', 109, 614.09823),
 (1, '2012-11-30 14:28:23', 114, 1999.99921),
 (1, '2012-11-30 14:28:23', 119, 4044.01000),
-(1, '2012-11-30 14:28:23', 124, 1032.776450,
+(1, '2012-11-30 14:28:23', 124, 1032.77645),
 (1, '2012-11-30 14:45:01', 104, 1522.98872),
 (1, '2012-11-30 14:45:01', 109, 1225.98007),
-(1, '2012-11-30 14:45:01', 114, 4010,00222),
+(1, '2012-11-30 14:45:01', 114, 4010.00222),
 (1, '2012-11-30 14:45:01', 119, 8101.01019),
 (1, '2012-11-30 14:45:01', 124, 2200.90391),
 (1, '2012-11-30 15:08:21', 104, 1522.99481),
@@ -528,9 +528,9 @@ INSERT INTO `performancemodeldata` (`ModelID`, `CollectedTime`, `MetricID`, `Dat
 (28, '2012-11-30 13:58:32', 151, 122.99876),
 (28, '2012-11-30 14:28:23', 151, 137.86551),
 (28, '2012-11-30 14:45:01', 151, 115.65882),
-(28, '2012-11-30 15:08:21', 151, 140,63315),
+(28, '2012-11-30 15:08:21', 151, 140.63315),
 (28, '2012-11-30 13:45:08', 149, 2812.88771),
-(28, '2012-11-30 13:58:32', 149, 2988.l2342),
+(28, '2012-11-30 13:58:32', 149, 2988.12342),
 (28, '2012-11-30 14:28:23', 149, 2887.27732),
 (28, '2012-11-30 14:45:01', 149, 4899.12319),
 (28, '2012-11-30 15:08:21', 149, 4877.09872);
@@ -564,7 +564,7 @@ INSERT INTO `performancemodelmetric` (`ModelID`, `MetricID`, `ModelMetric`) VALU
 (1, 114, 0),
 (1, 119, 0),
 (1, 124, 0),
-(26, 83, 1),
+(26, 83, 0),
 (26, 129, 0),
 (26, 133, 0),
 (26, 137, 0),
@@ -572,9 +572,9 @@ INSERT INTO `performancemodelmetric` (`ModelID`, `MetricID`, `ModelMetric`) VALU
 (27, 142, 0),
 (27, 143, 0),
 (27, 147, 0),
-(28, 150, 1),
-(28, 151, 1),
-(28, 149, 1);
+(28, 150, 0),
+(28, 151, 0),
+(28, 149, 0);
 
 -- --------------------------------------------------------
 
@@ -652,7 +652,7 @@ INSERT INTO `scalabilitymetric` (`MetricID`, `isDefault`, `Name`, `Statistic`, `
 (78, 0, 'VolumeWriteOps', 'Minimum', 'The total number of operations in the period', 'System Defined	System Defined', 'System Defined'),
 (79, 0, 'VolumeWriteOps', 'Sum', 'The total number of operations in the period', 'System Defined	System Defined', 'System Defined'),
 (80, 0, 'VolumeWriteOps', 'SampleCount', 'The total number of operations in the period', 'System Defined	System Defined', 'System Defined'),
-(83, 0, 'CRUM', 'None', 'Utilization', 'Based on a Model', 'Model Defined'),
+(83, 0, 'CRUM', 'Average', 'Utilization', 'System Defined', 'System Defined'),
 (84, 0, 'StorageUtilization', 'Average', 'Percentage of allocated storage in use.', 'System Defined', 'System Defined'),
 (85, 0, 'StorageUtilization', 'Minimum', 'Percentage of allocated storage in use.', 'System Defined', 'System Defined'),
 (86, 0, 'StorageUtilization', 'Maximum', 'Percentage of allocated storage in use.', 'System Defined', 'System Defined'),
@@ -709,9 +709,9 @@ INSERT INTO `scalabilitymetric` (`MetricID`, `isDefault`, `Name`, `Statistic`, `
 (146, 0, 'UserAccessLoad', 'Maximum', 'Total users accessing system.', 'System Defined', 'System Defined'),
 (147, 0, 'UserAccessLoad', 'Sum', 'Total users accessing system.', 'System Defined', 'System Defined'),
 (148, 0, 'UserAccessLoad', 'SampleCount', 'Response time.', 'System Defined', 'System Defined'),
-(149, 0, 'CRAM', 'None', 'Resource allocation.', 'Based on a Model', 'Model Defined'),
-(150, 0, 'SLM', 'None', 'System load.', 'Based on a Model', 'Model Defined'),
-(151, 0, 'SPM', 'None', 'System performance', 'Based on a Model', 'Model Defined'),
+(149, 0, 'CRAM', 'Average', 'Resource allocation.', 'System Defined', 'System Defined'),
+(150, 0, 'SLM', 'Average', 'System load.', 'System Defined', 'System Defined'),
+(151, 0, 'SPM', 'Average', 'System performance', 'System Defined', 'System Defined'),
 (152, 0, 'ResourcesUsed', 'None', 'Total resources used.', '1 * CRUM : None * 1 * CRAM : None', 'System Defined');
 
 -- --------------------------------------------------------
@@ -741,8 +741,8 @@ INSERT INTO `scalabilitymodel` (`ModelID`, `isDefault`, `Name`, `Description`, `
 (2, 0, 'CRUM', 'Computing Resource Utilization Meter. Measures System Resources Utilization.', 5, 'System Defined', '(stopped)', 1004),
 (26, 0, 'SPM', 'System Performance Meter.', 5, 'System Defined', '(stopped)', 1003),
 (27, 0, 'SLM', 'System Load Meter.', 3, 'System Defined', '(stopped)', 1002),
-(28, 0, 'SCM', 'System Capacity Meter.', 3, 'System Defined', '(stopped)', 1004);
-(29, 0, 'SEC', 'System Effective Capacity.', 3, 'System Defined', '(stopped)', 1004);
+(28, 0, 'SCM', 'System Capacity Meter.', 3, 'System Defined', '(stopped)', 1004),
+(29, 0, 'SEC', 'System Effective Capacity.', 3, 'System Defined', '(running)', 1004);
 
 -- --------------------------------------------------------
 
@@ -778,10 +778,10 @@ INSERT INTO `scalabilitymodeldata` (`ModelID`, `CollectedTime`, `MetricID`, `Dat
 (1, '2012-11-30 14:28:23', 109, 614.09823),
 (1, '2012-11-30 14:28:23', 114, 1999.99921),
 (1, '2012-11-30 14:28:23', 119, 4044.01000),
-(1, '2012-11-30 14:28:23', 124, 1032.776450,
+(1, '2012-11-30 14:28:23', 124, 1032.77645),
 (1, '2012-11-30 14:45:01', 104, 1522.98872),
 (1, '2012-11-30 14:45:01', 109, 1225.98007),
-(1, '2012-11-30 14:45:01', 114, 4010,00222),
+(1, '2012-11-30 14:45:01', 114, 4010.00222),
 (1, '2012-11-30 14:45:01', 119, 8101.01019),
 (1, '2012-11-30 14:45:01', 124, 2200.90391),
 (1, '2012-11-30 15:08:21', 104, 1522.99481),
@@ -863,12 +863,12 @@ INSERT INTO `scalabilitymodeldata` (`ModelID`, `CollectedTime`, `MetricID`, `Dat
 (28, '2012-11-30 13:58:32', 151, 122.99876),
 (28, '2012-11-30 14:28:23', 151, 137.86551),
 (28, '2012-11-30 14:45:01', 151, 115.65882),
-(28, '2012-11-30 15:08:21', 151, 140,63315),
+(28, '2012-11-30 15:08:21', 151, 140.63315),
 (28, '2012-11-30 13:45:08', 149, 2812.88771),
-(28, '2012-11-30 13:58:32', 149, 2988.l2342),
+(28, '2012-11-30 13:58:32', 149, 2988.12342),
 (28, '2012-11-30 14:28:23', 149, 2887.27732),
 (28, '2012-11-30 14:45:01', 149, 4899.12319),
-(28, '2012-11-30 15:08:21', 149, 4877.09872);
+(28, '2012-11-30 15:08:21', 149, 4877.09872),
 (29, '2012-11-30 13:45:08', 150, 49881.00000),
 (29, '2012-11-30 13:58:32', 150, 90012.00000),
 (29, '2012-11-30 14:28:23', 150, 197266.00000),
@@ -878,9 +878,9 @@ INSERT INTO `scalabilitymodeldata` (`ModelID`, `CollectedTime`, `MetricID`, `Dat
 (29, '2012-11-30 13:58:32', 151, 122.99876),
 (29, '2012-11-30 14:28:23', 151, 137.86551),
 (29, '2012-11-30 14:45:01', 151, 115.65882),
-(29, '2012-11-30 15:08:21', 151, 140,63315),
+(29, '2012-11-30 15:08:21', 151, 140.63315),
 (29, '2012-11-30 13:45:08', 152, 23.88771),
-(29, '2012-11-30 13:58:32', 152, 56.l2342),
+(29, '2012-11-30 13:58:32', 152, 56.12342),
 (29, '2012-11-30 14:28:23', 152, 87.27732),
 (29, '2012-11-30 14:45:01', 152, 25.12319),
 (29, '2012-11-30 15:08:21', 152, 60.09872);
@@ -914,7 +914,7 @@ INSERT INTO `scalabilitymodelmetric` (`ModelID`, `MetricID`, `ModelMetric`) VALU
 (1, 114, 0),
 (1, 119, 0),
 (1, 124, 0),
-(26, 83, 1),
+(26, 83, 0),
 (26, 129, 0),
 (26, 133, 0),
 (26, 137, 0),
@@ -922,12 +922,12 @@ INSERT INTO `scalabilitymodelmetric` (`ModelID`, `MetricID`, `ModelMetric`) VALU
 (27, 142, 0),
 (27, 143, 0),
 (27, 147, 0),
-(28, 150, 1),
-(28, 151, 1),
-(28, 149, 1);
-(29, 150, 1);
-(29, 151, 1);
-(29, 152, 1);
+(28, 150, 0),
+(28, 151, 0),
+(28, 149, 0),
+(29, 150, 0),
+(29, 151, 0),
+(29, 152, 0);
 
 -- --------------------------------------------------------
 
